@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — Brian Boran Zhang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fafaf8;
+        --ink: #1f2328;
+        --ink-strong: #0f1216;
+        --muted: #5c6570;
+        --line: #e6e4df;
+        --link: #1d4e63;
+        --link-hover: #0f3444;
+        --measure: 56rem;
+        --pad: 1.25rem;
+        --font: "Source Serif 4", Georgia, serif;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font);
+        font-size: 1.05rem;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      .site-nav { border-bottom: 1px solid var(--line); }
+      .site-nav-inner {
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 0.85rem var(--pad);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      .site-nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+      .site-nav a:hover { color: var(--link); }
+      .site-nav a[aria-current="page"] {
+        color: var(--ink-strong);
+        font-weight: 600;
+      }
+      .nav-mark { font-size: 0.65rem; opacity: 0.85; }
+      .container {
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 2.25rem var(--pad) 4rem;
+      }
+      h1 {
+        margin: 0 0 1rem;
+        font-size: 1.85rem;
+        font-weight: 700;
+        color: var(--ink-strong);
+      }
+      p { color: var(--muted); margin: 0; }
+      a { color: var(--link); text-decoration: none; }
+      a:hover { color: var(--link-hover); }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Primary">
+      <div class="site-nav-inner">
+        <a href="../">Home</a>
+        <a href="../research/">Research</a>
+        <a href="./" aria-current="page">Projects</a>
+        <span class="nav-mark" aria-hidden="true">🍸</span>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>Projects</h1>
+      <p>Selected projects will appear here.</p>
+    </div>
+  </body>
+</html>

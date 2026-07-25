@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brian Boran Zhang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fafaf8;
+        --ink: #1f2328;
+        --ink-strong: #0f1216;
+        --muted: #5c6570;
+        --line: #e6e4df;
+        --link: #1d4e63;
+        --link-hover: #0f3444;
+        --measure: 56rem;
+        --pad: 1.25rem;
+        --font: "Source Serif 4", Georgia, serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font);
+        font-size: 1.05rem;
+        line-height: 1.65;
+        font-optical-sizing: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Top nav — right-aligned, like Borelli */
+      .site-nav {
+        border-bottom: 1px solid var(--line);
+        background: var(--bg);
+      }
+
+      .site-nav-inner {
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 0.85rem var(--pad);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.25rem;
+      }
+
+      .site-nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+        letter-spacing: 0.01em;
+        transition: color 0.15s ease;
+      }
+
+      .site-nav a:hover {
+        color: var(--link);
+      }
+
+      .site-nav a[aria-current="page"] {
+        color: var(--ink-strong);
+        font-weight: 600;
+      }
+
+      .nav-mark {
+        font-size: 0.65rem;
+        line-height: 1;
+        opacity: 0.85;
+        user-select: none;
+      }
+
+      .container {
+        max-width: var(--measure);
+        margin: 0 auto;
+        padding: 2.25rem var(--pad) 4rem;
+      }
+
+      /* Page title block */
+      .page-header {
+        margin-bottom: 1.75rem;
+      }
+
+      .page-title {
+        margin: 0;
+        font-size: 2.35rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--ink-strong);
+        line-height: 1.15;
+      }
+
+      .page-desc {
+        margin: 0.45rem 0 0;
+        font-size: 1rem;
+        color: var(--muted);
+      }
+
+      .page-desc a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      .page-desc a:hover {
+        color: var(--link-hover);
+      }
+
+      /* Profile photo — float right, Borelli-style */
+      .profile {
+        float: right;
+        width: 15rem;
+        max-width: 42%;
+        margin: 0 0 1.25rem 1.75rem;
+      }
+
+      .portrait {
+        aspect-ratio: 4 / 5;
+        border-radius: 4px;
+        background: linear-gradient(165deg, #d8d4cc 0%, #c0bbb2 55%, #a8a39a 100%);
+        border: 1px solid rgba(31, 35, 40, 0.08);
+        display: flex;
+        align-items: flex-end;
+        padding: 0.7rem;
+        color: #7a756c;
+        font-size: 0.68rem;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        box-shadow: 0 1px 3px rgba(15, 18, 22, 0.06);
+      }
+
+      .about {
+        overflow: auto;
+      }
+
+      .about p {
+        margin: 0 0 1rem;
+        text-align: left;
+        hyphens: none;
+      }
+
+      .about a {
+        color: var(--link);
+        text-decoration: none;
+      }
+
+      .about a:hover {
+        color: var(--link-hover);
+      }
+
+      .about em {
+        font-style: italic;
+      }
+
+      .about strong {
+        font-weight: 600;
+        font-style: italic;
+        color: var(--ink-strong);
+      }
+
+      .nowrap {
+        white-space: nowrap;
+      }
+
+      .contact {
+        clear: both;
+        margin-top: 2rem;
+        padding-top: 1.15rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .contact-row {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 0.75rem;
+      }
+
+      .contact-row a {
+        color: var(--link);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .contact-row a:hover {
+        color: var(--link-hover);
+      }
+
+      .contact-row .sep {
+        color: var(--line);
+      }
+
+      .contact-row .email {
+        color: var(--ink);
+        font-variant-ligatures: none;
+      }
+
+      .contact-row .email .at {
+        color: var(--muted);
+        font-style: italic;
+        padding: 0 0.1em;
+      }
+
+      .contact-row .icon {
+        width: 0.9rem;
+        height: 0.9rem;
+        fill: currentColor;
+        flex-shrink: 0;
+      }
+
+      @media (max-width: 640px) {
+        .site-nav-inner {
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 0.75rem 1rem;
+        }
+
+        .page-title {
+          font-size: 1.85rem;
+          text-align: center;
+        }
+
+        .page-desc {
+          text-align: center;
+        }
+
+        .profile {
+          float: none;
+          width: 11rem;
+          max-width: 70%;
+          margin: 0 auto 1.5rem;
+        }
+
+        .nowrap {
+          white-space: normal;
+        }
+
+        em.nowrap {
+          white-space: normal;
+        }
+
+        strong.nowrap {
+          white-space: nowrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Primary">
+      <div class="site-nav-inner">
+        <a href="./" aria-current="page">Home</a>
+        <a href="./research/">Research</a>
+        <a href="./projects/">Projects</a>
+        <span class="nav-mark" aria-hidden="true">🍸</span>
+      </div>
+    </nav>
+
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">Brian Boran Zhang</h1>
+        <p class="page-desc">
+          Toward computational macro.
+        </p>
+      </header>
+
+      <main>
+        <aside class="profile">
+          <div class="portrait" aria-hidden="true">Photo</div>
+        </aside>
+
+        <div class="about">
+          <p>
+            I’m Brian Boran Zhang, a senior undergraduate at
+            <em class="nowrap">The&nbsp;Chinese University of Hong&nbsp;Kong</em>,
+            interested in
+            <strong class="nowrap">macro&nbsp;finance</strong> and
+            <strong class="nowrap">computational&nbsp;economics</strong>. I
+            prefer work that has to answer to data — where a model’s claims can
+            be taken apart, rebuilt, and tried again.
+          </p>
+          <p>
+            My current focus is building fluency in dynamic models, numerical
+            methods, and the empirical tools used to take them to data. Longer
+            term, I want to work as a computational economist on problems where
+            markets, policy, and computation meet.
+          </p>
+        </div>
+
+        <div class="contact">
+          <ul class="contact-row">
+            <li class="email">
+              boranz <span class="at">{at}</span> link.cuhk.edu.hk
+            </li>
+            <li class="sep" aria-hidden="true">·</li>
+            <li>
+              <a href="https://github.com/Boranzzz" rel="noopener noreferrer" target="_blank">
+                <svg class="icon" viewBox="0 0 16 16" aria-hidden="true">
+                  <path
+                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+                  />
+                </svg>
+                GitHub
+              </a>
+            </li>
+          </ul>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
