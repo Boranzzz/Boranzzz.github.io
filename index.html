@@ -89,7 +89,18 @@
         padding: 2.25rem var(--pad) 4rem;
       }
 
-      /* Page title block */
+      /* Title + bio left, photo right — tops align with name */
+      .intro {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.75rem;
+      }
+
+      .intro-copy {
+        flex: 1;
+        min-width: 0;
+      }
+
       .page-header {
         margin-bottom: 1.75rem;
       }
@@ -118,12 +129,10 @@
         color: var(--link-hover);
       }
 
-      /* Profile photo — float right, Borelli-style */
       .profile {
-        float: right;
+        flex: 0 0 15rem;
         width: 15rem;
-        max-width: 42%;
-        margin: 0 0 1.25rem 1.75rem;
+        margin: 0;
       }
 
       .portrait {
@@ -138,14 +147,14 @@
         box-shadow: 0 1px 3px rgba(15, 18, 22, 0.06);
       }
 
-      .about {
-        overflow: auto;
-      }
-
       .about p {
         margin: 0 0 1rem;
         text-align: left;
         hyphens: none;
+      }
+
+      .about p:last-child {
+        margin-bottom: 0;
       }
 
       .about a {
@@ -237,11 +246,21 @@
           text-align: center;
         }
 
+        .intro {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .intro-copy {
+          width: 100%;
+        }
+
         .profile {
-          float: none;
+          order: -1;
+          flex-basis: auto;
           width: 11rem;
           max-width: 70%;
-          margin: 0 auto 1.5rem;
+          margin: 0 0 1.5rem;
         }
 
         .nowrap {
@@ -269,40 +288,44 @@
     </nav>
 
     <div class="container">
-      <header class="page-header">
-        <h1 class="page-title">Brian Boran Zhang</h1>
-        <p class="page-desc">
-          Toward computational macro.
-        </p>
-      </header>
-
       <main>
-        <aside class="profile">
-          <img
-            class="portrait"
-            src="./images/portrait-full.jpg"
-            alt="Portrait of Brian Boran Zhang"
-            width="717"
-            height="1024"
-          />
-        </aside>
+        <div class="intro">
+          <div class="intro-copy">
+            <header class="page-header">
+              <h1 class="page-title">Brian Boran Zhang</h1>
+              <p class="page-desc">
+                Toward computational macro.
+              </p>
+            </header>
 
-        <div class="about">
-          <p>
-            I’m a senior undergraduate at
-            <em class="nowrap">The&nbsp;Chinese University of Hong&nbsp;Kong</em>,
-            interested in
-            <strong class="nowrap">macro&nbsp;finance</strong> and
-            <strong class="nowrap">computational&nbsp;economics</strong>. I
-            prefer work that has to answer to data — where a model’s claims can
-            be taken apart, rebuilt, and tried again.
-          </p>
-          <p>
-            My current focus is building fluency in dynamic models, numerical
-            methods, and the empirical tools used to take them to data. Longer
-            term, I want to work as a computational economist on problems where
-            markets, policy, and computation meet.
-          </p>
+            <div class="about">
+              <p>
+                I’m a senior undergraduate at
+                <em class="nowrap">The&nbsp;Chinese University of Hong&nbsp;Kong</em>,
+                interested in
+                <strong class="nowrap">macro&nbsp;finance</strong> and
+                <strong class="nowrap">computational&nbsp;economics</strong>. I
+                prefer work that has to answer to data — where a model’s claims can
+                be taken apart, rebuilt, and tried again.
+              </p>
+              <p>
+                My current focus is building fluency in dynamic models, numerical
+                methods, and the empirical tools used to take them to data. Longer
+                term, I want to work as a computational economist on problems where
+                markets, policy, and computation meet.
+              </p>
+            </div>
+          </div>
+
+          <aside class="profile">
+            <img
+              class="portrait"
+              src="./images/portrait-full.jpg"
+              alt="Portrait of Brian Boran Zhang"
+              width="717"
+              height="1024"
+            />
+          </aside>
         </div>
 
         <div class="contact">
