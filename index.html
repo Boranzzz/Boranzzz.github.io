@@ -89,7 +89,18 @@
         padding: 2.25rem var(--pad) 4rem;
       }
 
-      /* Page title block */
+      /* Title + bio left, photo right — tops align with name */
+      .intro {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.75rem;
+      }
+
+      .intro-copy {
+        flex: 1;
+        min-width: 0;
+      }
+
       .page-header {
         margin-bottom: 1.75rem;
       }
@@ -118,13 +129,6 @@
         color: var(--link-hover);
       }
 
-      /* Bio + photo: bottom edges aligned */
-      .intro {
-        display: flex;
-        align-items: flex-end;
-        gap: 1.75rem;
-      }
-
       .profile {
         flex: 0 0 15rem;
         width: 15rem;
@@ -141,11 +145,6 @@
         border-radius: 4px;
         border: 1px solid rgba(31, 35, 40, 0.08);
         box-shadow: 0 1px 3px rgba(15, 18, 22, 0.06);
-      }
-
-      .about {
-        flex: 1;
-        min-width: 0;
       }
 
       .about p {
@@ -252,6 +251,10 @@
           align-items: center;
         }
 
+        .intro-copy {
+          width: 100%;
+        }
+
         .profile {
           order: -1;
           flex-basis: auto;
@@ -285,31 +288,33 @@
     </nav>
 
     <div class="container">
-      <header class="page-header">
-        <h1 class="page-title">Brian Boran Zhang</h1>
-        <p class="page-desc">
-          Toward computational macro.
-        </p>
-      </header>
-
       <main>
         <div class="intro">
-          <div class="about">
-            <p>
-              I’m a senior undergraduate at
-              <em class="nowrap">The&nbsp;Chinese University of Hong&nbsp;Kong</em>,
-              interested in
-              <strong class="nowrap">macro&nbsp;finance</strong> and
-              <strong class="nowrap">computational&nbsp;economics</strong>. I
-              prefer work that has to answer to data — where a model’s claims can
-              be taken apart, rebuilt, and tried again.
-            </p>
-            <p>
-              My current focus is building fluency in dynamic models, numerical
-              methods, and the empirical tools used to take them to data. Longer
-              term, I want to work as a computational economist on problems where
-              markets, policy, and computation meet.
-            </p>
+          <div class="intro-copy">
+            <header class="page-header">
+              <h1 class="page-title">Brian Boran Zhang</h1>
+              <p class="page-desc">
+                Toward computational macro.
+              </p>
+            </header>
+
+            <div class="about">
+              <p>
+                I’m a senior undergraduate at
+                <em class="nowrap">The&nbsp;Chinese University of Hong&nbsp;Kong</em>,
+                interested in
+                <strong class="nowrap">macro&nbsp;finance</strong> and
+                <strong class="nowrap">computational&nbsp;economics</strong>. I
+                prefer work that has to answer to data — where a model’s claims can
+                be taken apart, rebuilt, and tried again.
+              </p>
+              <p>
+                My current focus is building fluency in dynamic models, numerical
+                methods, and the empirical tools used to take them to data. Longer
+                term, I want to work as a computational economist on problems where
+                markets, policy, and computation meet.
+              </p>
+            </div>
           </div>
 
           <aside class="profile">
