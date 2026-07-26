@@ -127,18 +127,14 @@
       }
 
       .portrait {
+        display: block;
+        width: 100%;
+        height: auto;
         aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center 20%;
         border-radius: 4px;
-        background: linear-gradient(165deg, #d8d4cc 0%, #c0bbb2 55%, #a8a39a 100%);
         border: 1px solid rgba(31, 35, 40, 0.08);
-        display: flex;
-        align-items: flex-end;
-        padding: 0.7rem;
-        color: #7a756c;
-        font-size: 0.68rem;
-        font-family: ui-sans-serif, system-ui, sans-serif;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
         box-shadow: 0 1px 3px rgba(15, 18, 22, 0.06);
       }
 
@@ -282,7 +278,13 @@
 
       <main>
         <aside class="profile">
-          <div class="portrait" aria-hidden="true">Photo</div>
+          <img
+            class="portrait"
+            src="./images/portrait.jpg"
+            alt="Portrait of Brian Boran Zhang"
+            width="480"
+            height="600"
+          />
         </aside>
 
         <div class="about">
