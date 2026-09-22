@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A China Informal Employment Pressure Index</title>
+  <style>
+    :root {
+      --ink: #111;
+      --muted: #6a6a6a;
+      --line: #e2e2e2;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 560;
+      letter-spacing: -0.02em;
+    }
+
+    .byline {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .byline a {
+      color: var(--ink);
+      text-underline-offset: 3px;
+    }
+
+    .sentence {
+      max-width: 62ch;
+      margin: 14px 0 0;
+      color: #222;
+    }
+
+    .sheet { list-style: none; margin: 32px 0 0; padding: 0; }
+
+    .sheet li {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 18px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .sheet li:last-child { border-bottom: 1px solid var(--line); }
+
+    .sheet .tag { color: var(--muted); }
+
+    @media (max-width: 640px) {
+      main { padding: 32px 16px 64px; }
+      .sheet li { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>A China Informal Employment Pressure Index</h1>
+    <p class="byline">
+      <a href="https://boranzzz.github.io">Brian Boran Zhang</a>
+      · CUHK
+      · <a href="https://github.com/Boranzzz/Boranzzz.github.io/tree/main/projects/china-labor-pulse">Code</a>
+    </p>
+    <p class="sentence">Developing a monthly measure of labor-market pressure in China, using crowding in food-delivery and ride-hailing markets as a signal of employment stress beyond the official unemployment rate.</p>
+    <ol class="sheet">
+      <li>
+        <div class="tag">Reading</div>
+        <div>—</div>
+      </li>
+      <li>
+        <div class="tag">Frequency</div>
+        <div>Monthly</div>
+      </li>
+      <li>
+        <div class="tag">Coverage</div>
+        <div>National. Cities later.</div>
+      </li>
+      <li>
+        <div class="tag">Series</div>
+        <div>Ride-hailing: driver permits, vehicle permits, orders. Food delivery: rider postings and the hourly pay offered. Orders and spending are held out as demand.</div>
+      </li>
+      <li>
+        <div class="tag">Construction</div>
+        <div>Crowding after demand is removed. The raw measure is orders per driver.</div>
+      </li>
+      <li>
+        <div class="tag">Data</div>
+        <div>Not posted.</div>
+      </li>
+      <li>
+        <div class="tag">Cite</div>
+        <div>Zhang, Brian Boran. China Informal Employment Pressure Index. https://boranzzz.github.io/projects/china-labor-pulse/</div>
+      </li>
+      <li>
+        <div class="tag">22 Sep 2026</div>
+        <div>Measurement written. No series downloaded.</div>
+      </li>
+    </ol>
+  </main>
+</body>
+</html>
