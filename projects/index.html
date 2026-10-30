@@ -63,14 +63,32 @@
         padding: 2.25rem var(--pad) 4rem;
       }
       h1 {
-        margin: 0 0 1rem;
+        margin: 0 0 1.25rem;
         font-size: 1.85rem;
         font-weight: 700;
         color: var(--ink-strong);
       }
-      p { color: var(--muted); margin: 0; }
-      a { color: var(--link); text-decoration: none; }
-      a:hover { color: var(--link-hover); }
+      .entry-title {
+        margin: 0 0 0.5rem;
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1.35;
+        color: var(--ink-strong);
+      }
+      .entry-title a {
+        color: var(--ink-strong);
+        text-decoration: none;
+      }
+      .entry-title a:hover {
+        color: var(--link-hover);
+      }
+      .entry-desc {
+        margin: 0;
+        max-width: 38rem;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: var(--muted);
+      }
     </style>
   </head>
   <body>
@@ -85,7 +103,14 @@
     </nav>
     <div class="container">
       <h1>Projects</h1>
-      <p><a href="china-labor-pulse/">China Informal Employment Pressure Index</a>. Developing a monthly measure of labor-market pressure in China, using crowding in food-delivery and ride-hailing markets as a signal of employment stress beyond the official unemployment rate.</p>
+      <p class="entry-title">
+        <a href="china-labor-pulse/">China Informal Employment Pressure Index</a>.
+      </p>
+      <p class="entry-desc">
+        Developing a monthly measure of labor-market pressure in China, using
+        crowding in food-delivery and ride-hailing markets as a signal of
+        employment stress beyond the official unemployment rate.
+      </p>
     </div>
   </body>
 </html>
