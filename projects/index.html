@@ -89,6 +89,9 @@
         line-height: 1.55;
         color: var(--muted);
       }
+      .entry + .entry {
+        margin-top: 1.5rem;
+      }
     </style>
   </head>
   <body>
@@ -103,14 +106,26 @@
     </nav>
     <div class="container">
       <h1>Projects</h1>
-      <p class="entry-title">
-        <a href="china-labor-pulse/">China Informal Employment Pressure Index</a>.
-      </p>
-      <p class="entry-desc">
-        Developing a monthly measure of labor-market pressure in China, using
-        crowding in food-delivery and ride-hailing markets as a signal of
-        employment stress beyond the official unemployment rate.
-      </p>
+      <div class="entry">
+        <p class="entry-title">
+          <a href="../flavor-pricing/">(Just for fun!) The Price of Taste: Flavor Pricing in Single Malt Scotch</a>.
+        </p>
+        <p class="entry-desc">
+          Exploring how the single malt Scotch market values different flavors
+          and their combinations, identifying which flavor profiles command a
+          premium and how these premiums evolve over time.
+        </p>
+      </div>
+      <div class="entry">
+        <p class="entry-title">
+          <a href="china-labor-pulse/">China Informal Employment Pressure Index</a>.
+        </p>
+        <p class="entry-desc">
+          Developing a monthly measure of labor-market pressure in China, using
+          crowding in food-delivery and ride-hailing markets as a signal of
+          employment stress beyond the official unemployment rate.
+        </p>
+      </div>
     </div>
   </body>
 </html>
