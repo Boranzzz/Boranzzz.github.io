@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Measuring Local Labor-Market Pressure from a Buffer Sector: Evidence from Ride-Hailing in Guangzhou</title>
+  <style>
+    :root {
+      --ink: #111;
+      --muted: #6a6a6a;
+      --line: #e2e2e2;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    main {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 48px 24px 72px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 560;
+      letter-spacing: -0.02em;
+    }
+
+    .byline {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .byline a {
+      color: var(--ink);
+      text-underline-offset: 3px;
+    }
+
+    .sentence {
+      max-width: 62ch;
+      margin: 14px 0 0;
+      color: #222;
+    }
+
+    .sheet {
+      list-style: none;
+      margin: 28px 0 0;
+      padding: 14px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .sheet li {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 18px;
+      padding: 10px 0;
+    }
+
+    .sheet .tag { color: var(--muted); }
+
+    .sheet .body .sentence:first-child {
+      margin-top: 0;
+    }
+
+    .formula {
+      max-width: 62ch;
+      margin: 14px 0 0;
+      padding: 0;
+      color: #222;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer a { color: var(--muted); }
+
+    @media (max-width: 640px) {
+      main { padding: 32px 16px 64px; }
+      .sheet li { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Measuring Local Labor-Market Pressure from a Buffer Sector: Evidence from Ride-Hailing in Guangzhou</h1>
+    <p class="byline">
+      <a href="https://github.com/Boranzzz/Boranzzz.github.io/tree/main/research/china-labor-pulse">Code</a>
+      · 9 Nov 2026
+    </p>
+    <p class="sentence">A monthly index of local labor-market pressure in Guangzhou, read from ride-hailing participation after the industry’s own return is taken out. Drivers remain employed. This is not a true unemployment rate, and it is not a description of the ride-hailing business.</p>
+
+    <ol class="sheet">
+      <li>
+        <div class="tag">Question</div>
+        <div class="body">
+          <p class="sentence">Are outside employment opportunities in Guangzhou deteriorating, and by how much?</p>
+          <p class="sentence">Workers can enter ride-hailing when other jobs pay less or become harder to find. They are still counted as employed. The page asks whether that buffer contains information about the outside path, and how large the pressure is.</p>
+        </div>
+      </li>
+      <li>
+        <div class="tag">Sample</div>
+        <div class="body">
+          <p class="sentence">30 checked months, January 2024–June 2026, Guangzhou ride-hailing reports.</p>
+          <p class="sentence">Each month has the daily-average count of active drivers, the count of active vehicles, orders per vehicle, and revenue per vehicle. Source: Guangzhou municipal transport reports. Food delivery is not an input. Coverage is Guangzhou, not national.</p>
+          <p class="sentence">Two mappings are still open. A higher active count can be more drivers, or the same drivers working more often. It is not automatically new entry. Daily revenue per vehicle is not the expected monthly net return. That return still needs the work schedule, the commission, costs, and the match between people and vehicles.</p>
+          <p class="sentence">The file is enough to start a prototype. It is not yet a measure of labor-market pressure.</p>
+        </div>
+      </li>
+      <li>
+        <div class="tag">Formula</div>
+        <div class="body">
+          <p class="sentence">Participation on the gap between the ride-hailing return and the outside option.</p>
+          <pre class="formula">s_t = F(R^G_t − B_t; θ)
+
+B̂_t = R^G_t − F⁻¹(s_t; θ)</pre>
+          <p class="sentence">R^G_t is the expected monthly net return in ride-hailing. B_t is the expected return on the outside path, including the wage and the chance of finding the job. s_t is the participation share. θ has to come from outside this participation series. It is not estimated from the same s_t and R^G_t.</p>
+          <p class="sentence">Of an increase in participation, the part explained by a better ride-hailing return stays in R^G_t. The rest is the decline in B_t required to rationalize it. The index rises when inferred B_t falls, relative to a stated reference month, and it stays high if the outside return stays low.</p>
+          <p class="sentence">Participation costs, non-monetary preferences, and who the drivers are can move s_t as well. Naming that remainder “pressure” is not identification. B̂_t is an intermediate object. The page reports pressure only where those other factors have been bounded.</p>
+        </div>
+      </li>
+      <li>
+        <div class="tag">Figure</div>
+        <div class="body">
+          <p class="sentence">No pressure index posted.</p>
+          <p class="sentence">A figure will be the index, with an interval where the mapping needs one. It is not posted. Daily revenue and the active count are not yet R^G_t and s_t.</p>
+        </div>
+      </li>
+      <li>
+        <div class="tag">Draft</div>
+        <div class="body">
+          <p class="sentence">For one period, can the change in the outside return be bounded?</p>
+          <p class="sentence">The next result is not the full monthly index. It is one clearly defined window. The change in the expected outside return has to have a direction, and a range, that survives defensible changes in costs, hours, and how often drivers work. If a reasonable shift flips the sign, that window is not pressure.</p>
+          <p class="sentence">Validation uses independent Guangzhou or Guangdong employment series, plus a participation-only series and a revenue-only series. Those series are not used to choose θ. A simulation can show when the method misclassifies. It does not replace the external series. Any predictive check uses only what was public on the release date, and it holds out a sample.</p>
+        </div>
+      </li>
+      <li>
+        <div class="tag">Note</div>
+        <div class="body">
+          <p class="sentence">A residual is not pressure.</p>
+          <p class="sentence">The active count is not monthly participation. Daily revenue per vehicle is not the monthly net return. A higher index is a lower inferred outside return, not a higher unemployment rate. If one window cannot be read as external employment pressure, the project is not finished.</p>
+        </div>
+      </li>
+    </ol>
+
+    <footer>© 2026 <a href="https://boranzzz.github.io">Brian Boran Zhang</a> · CUHK</footer>
+  </main>
+</body>
+</html>

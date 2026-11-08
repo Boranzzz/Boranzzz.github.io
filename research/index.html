@@ -63,14 +63,35 @@
         padding: 2.25rem var(--pad) 4rem;
       }
       h1 {
-        margin: 0 0 1rem;
+        margin: 0 0 1.25rem;
         font-size: 1.85rem;
         font-weight: 700;
         color: var(--ink-strong);
       }
-      p { color: var(--muted); margin: 0; }
-      a { color: var(--link); text-decoration: none; }
-      a:hover { color: var(--link-hover); }
+      .entry-title {
+        margin: 0 0 0.5rem;
+        font-size: 1.05rem;
+        font-weight: 500;
+        line-height: 1.65;
+      }
+      .entry-title a {
+        color: var(--link);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .entry-title a:hover {
+        color: var(--link-hover);
+      }
+      .entry-desc {
+        margin: 0;
+        max-width: 38rem;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+      .entry + .entry {
+        margin-top: 1.5rem;
+      }
     </style>
   </head>
   <body>
@@ -85,7 +106,17 @@
     </nav>
     <div class="container">
       <h1>Research</h1>
-      <p>Working papers and notes will appear here.</p>
+      <div class="entry">
+        <p class="entry-title">
+          <a href="china-labor-pulse/">Measuring Local Labor-Market Pressure from a Buffer Sector: Evidence from Ride-Hailing in Guangzhou</a>.
+        </p>
+        <p class="entry-desc">
+          A monthly index of local labor-market pressure in Guangzhou, read from
+          ride-hailing participation after the industry’s own return is taken
+          out. Drivers remain employed. This is not a true unemployment rate,
+          and it is not a description of the ride-hailing business.
+        </p>
+      </div>
     </div>
   </body>
 </html>
