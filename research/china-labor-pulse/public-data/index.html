@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>What public data can identify — Guangzhou</title>
+  <title>Measuring Local Labor-Market Pressure from a Buffer Sector</title>
   <style>
     :root { color-scheme: light; --ink: #111; --muted: #6a6a6a; --line: #e5e5e5; --paper: #fff; }
     * { box-sizing: border-box; }
@@ -15,119 +15,103 @@
     a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
     a:hover { color: var(--muted); }
     .meta, .caption { color: var(--muted); }
-    .meta { margin-bottom: 28px; }
+    .meta { margin-bottom: 22px; }
+    .intro { max-width: 64ch; color: #222; margin-bottom: 32px; }
     .row { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 28px; margin: 0 0 30px; }
-    .content { min-width: 0; max-width: 65ch; }
+    .content { min-width: 0; }
+    .content > p { max-width: 65ch; }
     .formula { white-space: pre-wrap; margin: 0 0 14px; font: 13px/1.8 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
-    ul { margin: 0; padding-left: 1.1em; }
-    li { margin: 0 0 8px; }
-    li:last-child { margin-bottom: 0; }
-    table { border-collapse: collapse; width: 100%; font-size: 12px; font-variant-numeric: tabular-nums; margin: 0 0 10px; }
-    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
-    th { font-weight: 500; color: #555; background: #f8f8f8; }
+    .svgbox { width: 100%; max-width: 800px; }
+    svg { display: block; width: 100%; height: auto; }
+    svg text { font-family: inherit; fill: #666; font-size: 11px; }
+    .metric { border-bottom: 1px solid var(--line); padding: 0 0 14px; margin-bottom: 14px; }
+    .metric strong { font-size: 28px; font-weight: 500; margin-right: 10px; }
     .caption { font-size: 12px; line-height: 1.6; }
     footer { border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: 12px; margin-top: 12px; }
     @media (max-width: 600px) {
       main { padding: 30px 18px; }
       .row { grid-template-columns: 1fr; gap: 10px; }
       h1 { font-size: 20px; }
+      .metric strong { font-size: 25px; }
     }
   </style>
 </head>
 <body>
 <main>
-  <h1>What public data can identify</h1>
-  <p class="meta"><a href="../">Prototype</a> · Guangzhou ride-hailing · 14 Nov 2026</p>
+  <h1>Measuring Local Labor-Market Pressure from a Buffer Sector: Evidence from Ride-Hailing in Guangzhou</h1>
+  <p class="meta"><a href="../">Prototype</a> · 14 Nov 2026</p>
+  <p class="intro">Building a monthly index of labor-market pressure in Guangzhou from ride-hailing, the buffer people turn to when other work pays less or becomes harder to find. The aim is to see how much of that turn is a weaker outside option, and how much is driving itself becoming a better deal.</p>
 
   <section class="row">
-    <h2>Background</h2>
+    <h2>Model</h2>
     <div class="content">
-      <p>Ride-hailing is treated as a buffer. Reading it as outside employment still needs labour input and the driver’s net return, not just the published counts.</p>
-      <p class="formula">L = N × h
-R = z − d</p>
-      <p class="caption">N daily active drivers. h hours per active driver-day. z gross receipts. d deductions. Monthly reports give N and z. They do not give h or d, and they do not define “active.”</p>
+      <p>Participation depends on the gap between the return to driving and the outside option. More labour supplied at a given driving return requires a lower outside option.</p>
+      <p class="formula">rₜ = bₜ + a + λ ln(Nₜ / Mₜ),  λ &gt; 0
+θ₀ = q₀ / λ
+Iₜ = 100 × { ln[(Nₜ/N₀) / (Mₜ/M₀)] / θ₀ − (zₜ/z₀ − 1) − uₜ }</p>
+      <p>r is the net return for a standardized active day. b is the outside employment return in the same units, wage plus the chance of finding the job. N is daily-average active drivers, a proxy for labour input. M is the pool of potential workers. z is revenue per vehicle times active vehicles, divided by active drivers. q is receipts after platform fees and relevant subsidies, before operating costs. θ₀ is the elasticity of labour input with respect to q at the January 2024 reference. It is not estimated from this participation series. u is any extra net-return change, as a share of baseline q₀: lower costs or a better take-home than z shows. Positive u reduces inferred pressure.</p>
+      <p>Of an increase in participation, the part explained by a better driving return stays in the receipts term. The rest is the decline in b required to rationalize it. The index rises when inferred b falls relative to January 2024, and it stays high if the outside return stays low. It does not return to zero merely because deterioration stops. January 2024 is the reference month, not a month with zero distress. Iₜ is 100 times outside-return loss over q₀. It is not an unemployment rate.</p>
+      <div class="metric">
+        <p class="caption">June 2026 · relative to January 2024 · θ₀ = 1, u = 0, M fixed</p>
+        <div><strong>+48.70</strong><span>index points</span></div>
+      </div>
+      <div class="svgbox">
+        <svg viewBox="0 0 800 350" role="img" aria-label="Illustrated pressure index, January 2024 to June 2026, under theta zero equals 1">
+          <text x="12" y="16">Index points</text>
+          <line x1="68" y1="298" x2="780" y2="298" stroke="#e5e5e5"/>
+          <text x="58" y="302" text-anchor="end">−72.4</text>
+          <line x1="68" y1="230.5" x2="780" y2="230.5" stroke="#e5e5e5"/>
+          <text x="58" y="234.5" text-anchor="end">−38.9</text>
+          <line x1="68" y1="163" x2="780" y2="163" stroke="#e5e5e5"/>
+          <text x="58" y="167" text-anchor="end">−5.3</text>
+          <line x1="68" y1="95.5" x2="780" y2="95.5" stroke="#e5e5e5"/>
+          <text x="58" y="99.5" text-anchor="end">28.2</text>
+          <line x1="68" y1="28" x2="780" y2="28" stroke="#e5e5e5"/>
+          <text x="58" y="32" text-anchor="end">61.7</text>
+          <line x1="68" y1="152.24" x2="780" y2="152.24" stroke="#999"/>
+          <text x="68" y="326" text-anchor="middle">2024-01</text>
+          <text x="215.31" y="326" text-anchor="middle">2024-07</text>
+          <text x="362.62" y="326" text-anchor="middle">2025-01</text>
+          <text x="509.93" y="326" text-anchor="middle">2025-07</text>
+          <text x="657.24" y="326" text-anchor="middle">2026-01</text>
+          <text x="780" y="326" text-anchor="end">2026-06</text>
+          <text x="400" y="346" text-anchor="middle">Month</text>
+          <path d="M68.00,152.24 L92.55,271.87 L117.10,162.25 L141.66,150.99 L166.21,128.42 L190.76,143.84 L215.31,151.87 L239.86,145.79 L264.41,107.00 L288.97,99.46 L313.52,93.53 L338.07,94.28 L362.62,156.95 L387.17,164.30 L411.72,80.78 L436.28,82.83 L460.83,77.83 L485.38,74.36 L509.93,83.20 L534.48,95.48 L559.03,68.70 L583.59,88.59 L608.14,77.80 L632.69,66.56 L657.24,80.83 L681.79,196.54 L706.34,91.50 L730.90,87.25 L755.45,61.58 L780.00,54.13" fill="none" stroke="#111" stroke-width="2.5"/>
+        </svg>
+      </div>
+      <p class="caption">Illustration only. θ₀ = 1 is not calibrated, and u = 0 keeps net return proportional to the gross-receipts proxy. z = yV/N from 30 Guangzhou transport reports, January 2024–June 2026. No smoothing, seasonal adjustment, or coverage correction. Positive means a lower inferred outside return than at the reference date.</p>
     </div>
   </section>
 
   <section class="row">
-    <h2>Question</h2>
+    <h2>Public data</h2>
     <div class="content">
-      <p>Can public data pin down net return and labour input tightly enough to read March–June 2026 as external labour-market pressure?</p>
-    </div>
-  </section>
-
-  <section class="row">
-    <h2>Window</h2>
-    <div class="content">
-      <table>
-        <thead>
-          <tr><th></th><th>March 2026</th><th>June 2026</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Active drivers / day</td><td>106,100</td><td>108,300 (+2.07%)</td></tr>
-          <tr><td>Gross-receipts proxy</td><td colspan="2">−CNY 54.90 / driver-day (−13.58%)</td></tr>
-        </tbody>
-      </table>
-      <p class="caption">Pattern in the released tables. Not yet a change in hours or in net return. Guangzhou’s 2026H1 report states that 单车日均营收 is not net of commission.</p>
-    </div>
-  </section>
-
-  <section class="row">
-    <h2>Map</h2>
-    <div class="content">
-      <table>
-        <thead>
-          <tr><th>Object</th><th>Public monthly series</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>N, active drivers</td><td>Published. Definition not stated.</td></tr>
-          <tr><td>h, hours</td><td>Not published for this window.</td></tr>
-          <tr><td>z, gross receipts</td><td>Published. Not take-home pay.</td></tr>
-          <tr><td>d, deductions</td><td>Not published.</td></tr>
-        </tbody>
-      </table>
+      <p>Monthly reports publish active drivers and gross receipts, not hours or deductions, and they do not define “active.” March–June 2026: drivers 106,100 to 108,300 (+2.07%), gross-receipts proxy −CNY 54.90 per driver-day (−13.58%). That is a table pattern, not yet hours or net return. 单车日均营收 is not net of commission.</p>
     </div>
   </section>
 
   <section class="row">
     <h2>Net return</h2>
     <div class="content">
-      <ul>
-        <li>2023 rules require a commission ceiling and a per-order display. That is not a citywide average.</li>
-        <li>18.8% median (18–20% for most drivers) is a multi-province survey, restated in a blue-book mirror. A level reference only.</li>
-        <li>The rental template and 28 local firms show the contract form. No rents, no adoption rate.</li>
-        <li>Court mirrors show rent taken from receipts before withdrawal (CNY 4,200/month, 900/week, 3,900/month). Too few, and dispute-selected, to be a price index.</li>
-        <li>National IPH is about CNY 27 in 2024, after commission. A six-city rental band including Guangzhou is CNY 3,000–4,000. Neither converts Guangzhou z into net return.</li>
-      </ul>
+      <p>A commission ceiling, an 18.8% multi-province median, rental templates, and a few court contracts show that deductions exist. None is a Guangzhou monthly series for this window.</p>
     </div>
   </section>
 
   <section class="row">
     <h2>Labour input</h2>
     <div class="content">
-      <ul>
-        <li>2024 survey: 28% at most 8 hours, 63% at 9–12, 9% above 12. For 2025: 60% at 9–12, 10% above 12. Bins, not a March–June mean.</li>
-        <li>A 2024 “salary” about CNY 6,000 above 2023 is not defined as post-cost income, and does not contradict this window.</li>
-        <li>A 2020 sample: 6.3 days/week, 10.7 hours/day. Too old to rescale 2026.</li>
-        <li>Dongguan hours (9.7) cover vehicles with at least 10 orders. A national survey reports 6.41 hours. Neither applies to Guangzhou’s count.</li>
-      </ul>
+      <p>Hour evidence is annual bins or other cities. It does not give hours per Guangzhou active driver-day in March and June 2026.</p>
     </div>
   </section>
 
   <section class="row">
     <h2>Result</h2>
     <div class="content">
-      <p>Inconclusive. The objects exist in the wider system. They are not identified here as a monthly series.</p>
-      <p>The result would change if the same city and platform universe published, each month:</p>
-      <ul>
-        <li>hours per active driver-day, and the definition of active;</li>
-        <li>realised payout after commission, fees, and bonuses;</li>
-        <li>rent, energy, and other major costs, by ownership or rental type.</li>
-      </ul>
+      <p>Inconclusive on external pressure until the same city and platform universe publishes hours and the definition of active, realised payout after commission and bonuses, and major costs by rental type.</p>
     </div>
   </section>
 
-  <footer>Public material through 14 Nov 2026. Does not update the prototype. Secondary mirrors are not administrative tables.</footer>
+  <footer>Public material through 14 Nov 2026. The figure does not update the prototype’s claim: parameters remain illustrative.</footer>
 </main>
 </body>
 </html>
