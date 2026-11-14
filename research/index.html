@@ -63,12 +63,36 @@
         padding: 2.25rem var(--pad) 4rem;
       }
       h1 {
-        margin: 0 0 1rem;
+        margin: 0 0 1.25rem;
         font-size: 1.85rem;
         font-weight: 700;
         color: var(--ink-strong);
       }
-      p { color: var(--muted); margin: 0; }
+      .entry-title {
+        margin: 0 0 0.5rem;
+        font-size: 1.05rem;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+      .entry-title a {
+        color: var(--link);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .entry-title a:hover {
+        color: var(--link-hover);
+      }
+      .entry-title .subtitle {
+        display: block;
+        line-height: 1.5;
+      }
+      .entry-desc {
+        margin: 0;
+        max-width: 38rem;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: var(--muted);
+      }
     </style>
   </head>
   <body>
@@ -83,7 +107,22 @@
     </nav>
     <div class="container">
       <h1>Research</h1>
-      <p>Working papers and notes will appear here.</p>
+      <div class="entry">
+        <p class="entry-title">
+          <a href="china-labor-pulse/">
+            Measuring Local Labor-Market Pressure from a Buffer Sector:
+            <span class="subtitle">Evidence from Ride-Hailing in Guangzhou.</span>
+          </a>
+        </p>
+        <p class="entry-desc">
+          Using monthly data from Guangzhou’s ride-hailing market, I study when
+          changes in driver activity and receipts can reveal weaker job
+          opportunities elsewhere. The challenge is to distinguish people
+          turning to driving because other jobs pay less or are harder to find
+          from people driving more because driving itself has become a better
+          deal.
+        </p>
+      </div>
     </div>
   </body>
 </html>
