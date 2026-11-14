@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What public data can identify — Guangzhou</title>
+  <style>
+    :root { color-scheme: light; --ink: #111; --muted: #6a6a6a; --line: #e5e5e5; --paper: #fff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 14px/1.55 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+    main { max-width: 880px; margin: 0 auto; padding: 52px 24px 36px; }
+    h1 { font-size: 22px; line-height: 1.35; font-weight: 600; margin: 0 0 16px; letter-spacing: -.4px; }
+    h2 { font-size: 14px; font-weight: 400; color: var(--muted); margin: 0; }
+    p { margin: 0 0 14px; }
+    a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--muted); }
+    .meta, .caption { color: var(--muted); }
+    .meta { margin-bottom: 28px; }
+    .row { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 28px; margin: 0 0 30px; }
+    .content { min-width: 0; max-width: 65ch; }
+    .formula { white-space: pre-wrap; margin: 0 0 14px; font: 13px/1.8 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+    ul { margin: 0; padding-left: 1.1em; }
+    li { margin: 0 0 8px; }
+    li:last-child { margin-bottom: 0; }
+    table { border-collapse: collapse; width: 100%; font-size: 12px; font-variant-numeric: tabular-nums; margin: 0 0 10px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-weight: 500; color: #555; background: #f8f8f8; }
+    .caption { font-size: 12px; line-height: 1.6; }
+    footer { border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: 12px; margin-top: 12px; }
+    @media (max-width: 600px) {
+      main { padding: 30px 18px; }
+      .row { grid-template-columns: 1fr; gap: 10px; }
+      h1 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>What public data can identify</h1>
+  <p class="meta"><a href="../">Prototype</a> · Guangzhou ride-hailing · 14 Nov 2026</p>
+
+  <section class="row">
+    <h2>Background</h2>
+    <div class="content">
+      <p>Ride-hailing is treated as a buffer. Reading it as outside employment still needs labour input and the driver’s net return, not just the published counts.</p>
+      <p class="formula">L = N × h
+R = z − d</p>
+      <p class="caption">N daily active drivers. h hours per active driver-day. z gross receipts. d deductions. Monthly reports give N and z. They do not give h or d, and they do not define “active.”</p>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2>Question</h2>
+    <div class="content">
+      <p>Can public data pin down net return and labour input tightly enough to read March–June 2026 as external labour-market pressure?</p>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2>Window</h2>
+    <div class="content">
+      <table>
+        <thead>
+          <tr><th></th><th>March 2026</th><th>June 2026</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Active drivers / day</td><td>106,100</td><td>108,300 (+2.07%)</td></tr>
+          <tr><td>Gross-receipts proxy</td><td colspan="2">−CNY 54.90 / driver-day (−13.58%)</td></tr>
+        </tbody>
+      </table>
+      <p class="caption">Pattern in the released tables. Not yet a change in hours or in net return. Guangzhou’s 2026H1 report states that 单车日均营收 is not net of commission.</p>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2>Map</h2>
+    <div class="content">
+      <table>
+        <thead>
+          <tr><th>Object</th><th>Public monthly series</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>N, active drivers</td><td>Published. Definition not stated.</td></tr>
+          <tr><td>h, hours</td><td>Not published for this window.</td></tr>
+          <tr><td>z, gross receipts</td><td>Published. Not take-home pay.</td></tr>
+          <tr><td>d, deductions</td><td>Not published.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2>Net return</h2>
+    <div class="content">
+      <ul>
+        <li>2023 rules require a commission ceiling and a per-order display. That is not a citywide average.</li>
+        <li>18.8% median (18–20% for most drivers) is a multi-province survey, restated in a blue-book mirror. A level reference only.</li>
+        <li>The rental template and 28 local firms show the contract form. No rents, no adoption rate.</li>
+        <li>Court mirrors show rent taken from receipts before withdrawal (CNY 4,200/month, 900/week, 3,900/month). Too few, and dispute-selected, to be a price index.</li>
+        <li>National IPH is about CNY 27 in 2024, after commission. A six-city rental band including Guangzhou is CNY 3,000–4,000. Neither converts Guangzhou z into net return.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2>Labour input</h2>
+    <div class="content">
+      <ul>
+        <li>2024 survey: 28% at most 8 hours, 63% at 9–12, 9% above 12. For 2025: 60% at 9–12, 10% above 12. Bins, not a March–June mean.</li>
+        <li>A 2024 “salary” about CNY 6,000 above 2023 is not defined as post-cost income, and does not contradict this window.</li>
+        <li>A 2020 sample: 6.3 days/week, 10.7 hours/day. Too old to rescale 2026.</li>
+        <li>Dongguan hours (9.7) cover vehicles with at least 10 orders. A national survey reports 6.41 hours. Neither applies to Guangzhou’s count.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row">
+    <h2>Result</h2>
+    <div class="content">
+      <p>Inconclusive. The objects exist in the wider system. They are not identified here as a monthly series.</p>
+      <p>The result would change if the same city and platform universe published, each month:</p>
+      <ul>
+        <li>hours per active driver-day, and the definition of active;</li>
+        <li>realised payout after commission, fees, and bonuses;</li>
+        <li>rent, energy, and other major costs, by ownership or rental type.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>Public material through 14 Nov 2026. Does not update the prototype. Secondary mirrors are not administrative tables.</footer>
+</main>
+</body>
+</html>
