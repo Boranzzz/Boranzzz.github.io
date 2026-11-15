@@ -63,14 +63,60 @@
         padding: 2.25rem var(--pad) 4rem;
       }
       h1 {
-        margin: 0 0 1rem;
+        margin: 0 0 1.25rem;
         font-size: 1.85rem;
         font-weight: 700;
         color: var(--ink-strong);
       }
-      p { color: var(--muted); margin: 0; }
-      a { color: var(--link); text-decoration: none; }
-      a:hover { color: var(--link-hover); }
+      h2 {
+        margin: 0 0 0.85rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--ink-strong);
+      }
+      h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+      section + section { margin-top: 2rem; }
+      .entry + .entry { margin-top: 1.3rem; }
+      .entry-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1.5rem;
+      }
+      .date {
+        flex-shrink: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .detail {
+        margin: 0.15rem 0 0;
+        font-size: 1rem;
+      }
+      .description {
+        margin: 0.35rem 0 0;
+        max-width: 40rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.55;
+      }
+      .skills { margin: 0; font-size: 1rem; }
+      .skills + .skills { margin-top: 0.3rem; }
+      a:focus-visible {
+        outline: 2px solid var(--link);
+        outline-offset: 4px;
+      }
+      @media (max-width: 620px) {
+        .entry-head { display: block; }
+        .date { display: block; margin-top: 0.15rem; }
+        .container { padding-top: 1.75rem; }
+        .site-nav-inner { gap: 1rem; }
+        section + section { margin-top: 1.75rem; }
+      }
     </style>
   </head>
   <body>
@@ -83,9 +129,58 @@
         <span class="nav-mark" aria-hidden="true">🍸</span>
       </div>
     </nav>
-    <div class="container">
+    <main class="container">
       <h1>CV</h1>
-      <p>Curriculum vitae will appear here.</p>
-    </div>
+
+      <section aria-labelledby="education">
+        <h2 id="education">Education</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>The Chinese University of Hong Kong</h3>
+            <span class="date">Expected 2027</span>
+          </div>
+          <p class="detail">B.S.Sc. in Economics <em>(Theory Stream)</em>, Minor in Statistics</p>
+          <p class="description">Honors at Entrance (2022).</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="research-experience">
+        <h2 id="research-experience">Research Experience</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Research Assistant</h3>
+            <span class="date">Mar. 2026 – Sep. 2026</span>
+          </div>
+          <p class="detail"><em>Supervised by Prof. Yiqing Xu, Stanford University</em></p>
+          <p class="description">Annotated empirical research papers and refined labels for an LLM-assisted dataset on research designs, identification strategies, and methodological features.</p>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Research Assistant</h3>
+            <span class="date">Aug. 2024 – Jun. 2025</span>
+          </div>
+          <p class="detail"><em>Supervised by Prof. Julan Du, The Chinese University of Hong Kong</em></p>
+          <p class="description">Developed automated Python workflows to clean and restructure EPFR Global fund-flow data, producing reproducible datasets for empirical research.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="professional-experience">
+        <h2 id="professional-experience">Professional Experience</h2>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Financial Engineering Intern</h3>
+            <span class="date">Jun. 2025 – Aug. 2025</span>
+          </div>
+          <p class="detail">Guotai Junan Futures Co., Ltd. <em>(Risk Management Subsidiary)</em></p>
+          <p class="description">Analyzed high-frequency futures and options data and developed statistical and machine-learning models for implied volatility forecasting.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="skills">
+        <h2 id="skills">Skills</h2>
+        <p class="skills">Programming / Software: Python, R, Stata, MATLAB, Dynare.</p>
+        <p class="skills">Languages: Mandarin Chinese (native), English (fluent), Cantonese (working proficiency).</p>
+      </section>
+    </main>
   </body>
 </html>
