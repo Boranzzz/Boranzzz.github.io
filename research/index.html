@@ -46,7 +46,15 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        min-height: 2.9rem;
+      }
+      .nav-tagline {
+        max-width: var(--measure);
+        margin: -0.72rem auto 0;
+        padding: 0 var(--pad) 0.55rem;
+        color: #8b939c;
+        font-size: 0.75rem;
+        font-style: italic;
+        line-height: 1;
       }
       .nav-name {
         position: absolute;
@@ -164,6 +172,7 @@
           <span class="nav-mark" aria-hidden="true">🍸</span>
         </div>
       </div>
+      <p class="nav-tagline">Toward computational macro.</p>
     </nav>
     <div class="container">
       <h1>Research</h1>

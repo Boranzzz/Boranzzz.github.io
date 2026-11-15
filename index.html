@@ -75,7 +75,6 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        min-height: 2.9rem;
       }
 
       .nav-links {
@@ -117,6 +116,16 @@
 
       .nav-links a[aria-current="page"] span {
         font-weight: 600;
+      }
+
+      .nav-tagline {
+        max-width: var(--measure);
+        margin: -0.72rem auto 0;
+        padding: 0 var(--pad) 0.55rem;
+        font-size: 0.75rem;
+        font-style: italic;
+        line-height: 1;
+        visibility: hidden;
       }
 
       .nav-mark {
@@ -325,6 +334,7 @@
           <span class="nav-mark" aria-hidden="true">🍸</span>
         </div>
       </div>
+      <p class="nav-tagline" aria-hidden="true">Toward computational macro.</p>
     </nav>
 
     <div class="container">
