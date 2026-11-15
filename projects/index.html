@@ -102,20 +102,93 @@
       .nav-links a[aria-current="page"] span {
         font-weight: 600;
       }
-      @media (max-width: 540px) {
-        .site-nav-inner {
-          flex-wrap: wrap;
-          align-items: flex-start;
-          min-height: 0;
-          row-gap: 0.2rem;
+      .nav-toggle {
+        display: none;
+        position: relative;
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+      .nav-toggle-text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .nav-toggle-icon,
+      .nav-toggle-icon::before,
+      .nav-toggle-icon::after {
+        display: block;
+        width: 1.15rem;
+        height: 1px;
+        background: var(--ink-strong);
+      }
+      .nav-toggle-icon { position: relative; margin: 0 auto; }
+      .nav-toggle-icon::before,
+      .nav-toggle-icon::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-icon::before { top: -0.34rem; }
+      .nav-toggle-icon::after { top: 0.34rem; }
+      .site-nav.is-open .nav-toggle-icon { background: transparent; }
+      .site-nav.is-open .nav-toggle-icon::before { top: 0; transform: rotate(45deg); }
+      .site-nav.is-open .nav-toggle-icon::after { top: 0; transform: rotate(-45deg); }
+      @media (max-width: 720px) {
+        .site-nav {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto;
+          column-gap: 0.75rem;
+          align-items: center;
+          padding: 0.85rem var(--pad) 0.7rem;
         }
-        .nav-links { order: 1; }
+        .site-nav-inner { display: contents; }
         .nav-name {
           position: static;
-          order: 2;
           transform: none;
-          flex: 1 0 100%;
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: start;
         }
+        .nav-tagline {
+          grid-column: 1;
+          grid-row: 2;
+          justify-self: start;
+          margin: 0.12rem 0 0;
+          padding: 0;
+          max-width: none;
+        }
+        .nav-toggle {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          grid-column: 2;
+          grid-row: 1 / span 2;
+          justify-self: end;
+        }
+        .nav-links {
+          display: none;
+          grid-column: 1 / -1;
+          grid-row: 3;
+          margin: 0.75rem 0 0;
+          padding-top: 0.35rem;
+          border-top: 1px solid var(--line);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.1rem;
+        }
+        .site-nav.is-open .nav-links { display: flex; }
+        .nav-links a { padding: 0.4rem 0; font-size: 1rem; }
+        .nav-mark { display: none; }
       }
       .nav-mark { font-size: 0.65rem; opacity: 0.85; }
       .container {
@@ -163,7 +236,11 @@
     <nav class="site-nav" aria-label="Primary">
       <div class="site-nav-inner">
         <a class="nav-name" href="../">Brian Boran Zhang</a>
-        <div class="nav-links">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          <span class="nav-toggle-text">Menu</span>
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+        </button>
+        <div class="nav-links" id="nav-menu">
           <a href="../" data-text="Home"><span>Home</span></a>
           <a href="../research/" data-text="Research"><span>Research</span></a>
           <a href="./" data-text="Projects" aria-current="page"><span>Projects</span></a>
@@ -186,5 +263,18 @@
         </p>
       </div>
     </div>
+    <script>
+      (function () {
+        var nav = document.querySelector(".site-nav");
+        var button = nav && nav.querySelector(".nav-toggle");
+        var label = button && button.querySelector(".nav-toggle-text");
+        if (!button) return;
+        button.addEventListener("click", function () {
+          var open = nav.classList.toggle("is-open");
+          button.setAttribute("aria-expanded", open ? "true" : "false");
+          if (label) label.textContent = open ? "Close" : "Menu";
+        });
+      })();
+    </script>
   </body>
 </html>
