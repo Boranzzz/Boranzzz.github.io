@@ -42,19 +42,38 @@
         margin: 0 auto;
         padding: 0.85rem var(--pad);
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         gap: 1.25rem;
       }
-      .site-nav a {
+      .nav-name {
+        color: var(--ink-strong);
+        text-decoration: none;
+        font-size: 1.15rem;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+      .nav-name:hover { color: var(--link); }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      .nav-links a {
         color: var(--muted);
         text-decoration: none;
         font-size: 0.95rem;
       }
-      .site-nav a:hover { color: var(--link); }
-      .site-nav a[aria-current="page"] {
+      .nav-links a:hover { color: var(--link); }
+      .nav-links a[aria-current="page"] {
         color: var(--ink-strong);
         font-weight: 600;
+      }
+      @media (max-width: 720px) {
+        .site-nav-inner { flex-wrap: wrap; align-items: flex-start; row-gap: 0.55rem; }
+        .nav-links { flex-wrap: wrap; gap: 0.7rem 1.1rem; }
       }
       .nav-mark { font-size: 0.65rem; opacity: 0.85; }
       .container {
@@ -102,11 +121,14 @@
   <body>
     <nav class="site-nav" aria-label="Primary">
       <div class="site-nav-inner">
+        <a class="nav-name" href="../">Brian Boran Zhang</a>
+        <div class="nav-links">
         <a href="../">Home</a>
         <a href="./" aria-current="page">Research</a>
         <a href="../projects/">Projects</a>
         <a href="../cv/">CV</a>
         <span class="nav-mark" aria-hidden="true">🍸</span>
+        </div>
       </div>
     </nav>
     <div class="container">
