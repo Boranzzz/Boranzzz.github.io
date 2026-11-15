@@ -27,6 +27,7 @@
         --font: "Source Serif 4", Georgia, serif;
       }
       * { box-sizing: border-box; }
+      html { scrollbar-gutter: stable; }
       body {
         margin: 0;
         background: var(--bg);
@@ -38,15 +39,20 @@
       }
       .site-nav { border-bottom: 1px solid var(--line); }
       .site-nav-inner {
+        position: relative;
         max-width: var(--measure);
         margin: 0 auto;
         padding: 0.85rem var(--pad);
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
-        gap: 1.25rem;
+        min-height: 2.9rem;
       }
       .nav-name {
+        position: absolute;
+        left: var(--pad);
+        top: 50%;
+        transform: translateY(-50%);
         color: var(--ink-strong);
         text-decoration: none;
         font-size: 1.15rem;
@@ -60,20 +66,48 @@
         display: flex;
         align-items: center;
         gap: 1.25rem;
+        margin-left: auto;
+        flex: 0 0 auto;
       }
       .nav-links a {
+        display: inline-grid;
         color: var(--muted);
         text-decoration: none;
         font-size: 0.95rem;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+      .nav-links a span,
+      .nav-links a::before {
+        grid-area: 1 / 1;
+      }
+      .nav-links a::before {
+        content: attr(data-text);
+        font-weight: 600;
+        visibility: hidden;
+        pointer-events: none;
       }
       .nav-links a:hover { color: var(--link); }
       .nav-links a[aria-current="page"] {
         color: var(--ink-strong);
+      }
+      .nav-links a[aria-current="page"] span {
         font-weight: 600;
       }
-      @media (max-width: 720px) {
-        .site-nav-inner { flex-wrap: wrap; align-items: flex-start; row-gap: 0.55rem; }
-        .nav-links { flex-wrap: wrap; gap: 0.7rem 1.1rem; }
+      @media (max-width: 540px) {
+        .site-nav-inner {
+          flex-wrap: wrap;
+          align-items: flex-start;
+          min-height: 0;
+          row-gap: 0.2rem;
+        }
+        .nav-links { order: 1; }
+        .nav-name {
+          position: static;
+          order: 2;
+          transform: none;
+          flex: 1 0 100%;
+        }
       }
       .nav-mark { font-size: 0.65rem; opacity: 0.85; }
       .container {
@@ -133,7 +167,6 @@
         .entry-head { display: block; }
         .date { display: block; margin-top: 0.15rem; }
         .container { padding-top: 1.75rem; }
-        .site-nav-inner { gap: 1rem; }
         section + section { margin-top: 1.75rem; }
       }
     </style>
@@ -143,11 +176,11 @@
       <div class="site-nav-inner">
         <a class="nav-name" href="../">Brian Boran Zhang</a>
         <div class="nav-links">
-        <a href="../">Home</a>
-        <a href="../research/">Research</a>
-        <a href="../projects/">Projects</a>
-        <a href="./" aria-current="page">CV</a>
-        <span class="nav-mark" aria-hidden="true">🍸</span>
+          <a href="../" data-text="Home"><span>Home</span></a>
+          <a href="../research/" data-text="Research"><span>Research</span></a>
+          <a href="../projects/" data-text="Projects"><span>Projects</span></a>
+          <a href="./" data-text="CV" aria-current="page"><span>CV</span></a>
+          <span class="nav-mark" aria-hidden="true">🍸</span>
         </div>
       </div>
     </nav>

@@ -48,6 +48,7 @@
 
       html {
         font-size: 100%;
+        scrollbar-gutter: stable;
       }
 
       body {
@@ -67,27 +68,54 @@
       }
 
       .site-nav-inner {
+        position: relative;
         max-width: var(--measure);
         margin: 0 auto;
         padding: 0.85rem var(--pad);
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        gap: 1.25rem;
+        min-height: 2.9rem;
       }
 
-      .site-nav a {
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        margin-left: auto;
+        flex: 0 0 auto;
+      }
+
+      .nav-links a {
+        display: inline-grid;
         color: var(--muted);
         text-decoration: none;
         font-size: 0.95rem;
+        font-weight: 400;
+        line-height: 1.2;
       }
 
-      .site-nav a:hover {
+      .nav-links a span,
+      .nav-links a::before {
+        grid-area: 1 / 1;
+      }
+
+      .nav-links a::before {
+        content: attr(data-text);
+        font-weight: 600;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .nav-links a:hover {
         color: var(--link);
       }
 
-      .site-nav a[aria-current="page"] {
+      .nav-links a[aria-current="page"] {
         color: var(--ink-strong);
+      }
+
+      .nav-links a[aria-current="page"] span {
         font-weight: 600;
       }
 
@@ -289,11 +317,13 @@
   <body>
     <nav class="site-nav" aria-label="Primary">
       <div class="site-nav-inner">
-        <a href="./" aria-current="page">Home</a>
-        <a href="./research/">Research</a>
-        <a href="./projects/">Projects</a>
-        <a href="./cv/">CV</a>
-        <span class="nav-mark" aria-hidden="true">🍸</span>
+        <div class="nav-links">
+          <a href="./" data-text="Home" aria-current="page"><span>Home</span></a>
+          <a href="./research/" data-text="Research"><span>Research</span></a>
+          <a href="./projects/" data-text="Projects"><span>Projects</span></a>
+          <a href="./cv/" data-text="CV"><span>CV</span></a>
+          <span class="nav-mark" aria-hidden="true">🍸</span>
+        </div>
       </div>
     </nav>
 
