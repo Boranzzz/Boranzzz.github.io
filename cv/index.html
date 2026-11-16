@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -197,25 +197,27 @@
         padding: 2.25rem var(--pad) 4rem;
       }
       h1 {
-        margin: 0 0 1.25rem;
+        margin: 0 0 1.15rem;
         font-size: 1.85rem;
         font-weight: 700;
         color: var(--ink-strong);
       }
       h2 {
-        margin: 0 0 0.85rem;
-        font-size: 1.2rem;
+        margin: 0 0 0.5rem;
+        font-size: 1.05rem;
         font-weight: 600;
+        line-height: 1.4;
         color: var(--ink-strong);
       }
       h3 {
         margin: 0;
         font-size: 1.05rem;
-        font-weight: 600;
-        line-height: 1.5;
+        font-weight: 500;
+        line-height: 1.45;
+        color: var(--link);
       }
-      section + section { margin-top: 2rem; }
-      .entry + .entry { margin-top: 1.3rem; }
+      section + section { margin-top: 1.7rem; }
+      .entry + .entry { margin-top: 1.15rem; }
       .entry-head {
         display: flex;
         justify-content: space-between;
@@ -226,20 +228,35 @@
         flex-shrink: 0;
         color: var(--muted);
         font-size: 0.9rem;
+        line-height: 1.55;
+        font-weight: 400;
       }
       .detail {
-        margin: 0.15rem 0 0;
-        font-size: 1rem;
+        margin: 0.2rem 0 0;
+        max-width: 38rem;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: var(--ink);
       }
       .description {
-        margin: 0.35rem 0 0;
-        max-width: 40rem;
+        margin: 0.28rem 0 0;
+        max-width: 38rem;
         color: var(--muted);
         font-size: 0.9rem;
         line-height: 1.55;
       }
-      .skills { margin: 0; font-size: 1rem; }
+      .skills {
+        margin: 0;
+        max-width: 38rem;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: var(--ink);
+      }
       .skills + .skills { margin-top: 0.3rem; }
+      .skill-label {
+        color: var(--link);
+        font-weight: 500;
+      }
       a:focus-visible {
         outline: 2px solid var(--link);
         outline-offset: 4px;
@@ -248,7 +265,7 @@
         .entry-head { display: block; }
         .date { display: block; margin-top: 0.15rem; }
         .container { padding-top: 1.75rem; }
-        section + section { margin-top: 1.75rem; }
+        section + section { margin-top: 1.45rem; }
       }
     </style>
   </head>
@@ -319,8 +336,8 @@
 
       <section aria-labelledby="skills">
         <h2 id="skills">Skills</h2>
-        <p class="skills">Programming / Software: Python, R, Stata, MATLAB, Dynare.</p>
-        <p class="skills">Languages: Mandarin Chinese (native), English (fluent), Cantonese (working proficiency).</p>
+        <p class="skills"><span class="skill-label">Programming / Software:</span> Python, R, Stata, MATLAB, Dynare.</p>
+        <p class="skills"><span class="skill-label">Languages:</span> Mandarin Chinese (native), English (fluent), Cantonese (working).</p>
       </section>
     </main>
     <script>
