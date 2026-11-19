@@ -236,22 +236,23 @@
       .entry-extra {
         margin: 0.7rem 0 0;
         display: flex;
-        align-items: baseline;
+        align-items: center;
         gap: 1.15rem;
       }
       .entry-link {
+        display: inline-flex;
+        align-items: center;
+        height: 1.4rem;
         color: var(--link);
         font-size: 0.95rem;
         font-weight: 500;
-        line-height: 1.5;
+        line-height: 1;
         text-decoration: underline;
         text-underline-offset: 0.18em;
         text-decoration-thickness: 1px;
         cursor: default;
       }
       button.entry-link {
-        display: inline-flex;
-        align-items: center;
         gap: 0.38rem;
         padding: 0;
         border: 0;
@@ -259,6 +260,7 @@
         font: inherit;
         font-size: 0.95rem;
         font-weight: 500;
+        line-height: 1;
         text-decoration: none;
         cursor: pointer;
       }
@@ -268,24 +270,27 @@
         text-decoration-thickness: 1px;
       }
       .highlight-mark {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        position: relative;
         width: 0.55rem;
         height: 0.55rem;
         flex: 0 0 0.55rem;
       }
       .highlight-mark::before {
         content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
         width: 0;
         height: 0;
         border-style: solid;
         border-width: 0.26rem 0 0.26rem 0.38rem;
         border-color: transparent transparent transparent currentColor;
+        transform: translate(-42%, -50%);
       }
       .highlight-toggle[aria-expanded="true"] .highlight-mark::before {
         border-width: 0.38rem 0.26rem 0 0.26rem;
         border-color: currentColor transparent transparent transparent;
+        transform: translate(-50%, -42%);
       }
       .highlight-panel {
         display: none;
