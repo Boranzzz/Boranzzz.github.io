@@ -235,6 +235,9 @@
       }
       .entry-extra {
         margin: 0.7rem 0 0;
+        display: flex;
+        align-items: baseline;
+        gap: 1.15rem;
       }
       .entry-link {
         color: var(--link);
@@ -246,6 +249,58 @@
         text-decoration-thickness: 1px;
         cursor: default;
       }
+      button.entry-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.38rem;
+        padding: 0;
+        border: 0;
+        background: none;
+        font: inherit;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .highlight-label {
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+        text-decoration-thickness: 1px;
+      }
+      .highlight-mark {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 0.55rem;
+        height: 0.55rem;
+        flex: 0 0 0.55rem;
+      }
+      .highlight-mark::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0.26rem 0 0.26rem 0.38rem;
+        border-color: transparent transparent transparent currentColor;
+      }
+      .highlight-toggle[aria-expanded="true"] .highlight-mark::before {
+        border-width: 0.38rem 0.26rem 0 0.26rem;
+        border-color: currentColor transparent transparent transparent;
+      }
+      .highlight-panel {
+        display: none;
+        max-width: 38rem;
+        margin: 0.75rem 0 0;
+        padding: 0.9rem 1rem 1rem;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+      .highlight-panel.is-open { display: block; }
+      .highlight-panel p { margin: 0 0 0.75rem; }
+      .highlight-panel p:last-child { margin-bottom: 0; }
       .entry + .entry {
         margin-top: 2.1rem;
       }
@@ -285,7 +340,23 @@
           distinguish labor-market pressure from changes within the ride-hailing
           market, and examine what the available data can—and cannot—tell us.
         </p>
-        <p class="entry-extra"><a class="entry-link">Dataset</a></p>
+        <p class="entry-extra">
+          <button class="entry-link highlight-toggle" type="button" aria-expanded="false" aria-controls="ride-hailing-highlight"><span class="highlight-mark" aria-hidden="true"></span><span class="highlight-label">Highlight</span></button>
+          <a class="entry-link">Dataset</a>
+        </p>
+        <div class="highlight-panel" id="ride-hailing-highlight">
+          <p>
+            This paper treats ride-hailing as a buffer sector. I study <em>when</em>
+            changes in driver activity and earnings reveal shifts in job
+            opportunities elsewhere, rather than changes that begin inside the
+            ride-hailing market.
+          </p>
+          <p>
+            A simple inverse-supply relationship separates those two stories.
+            The framework is still in progress: it is also about what the
+            available public data can—and cannot—identify.
+          </p>
+        </div>
       </div>
       <div class="entry">
         <p class="entry-status">In Progress</p>
@@ -317,6 +388,14 @@
           button.setAttribute("aria-expanded", open ? "true" : "false");
           if (label) label.textContent = open ? "Close" : "Menu";
         });
+        var highlight = document.querySelector(".highlight-toggle");
+        var panel = document.getElementById("ride-hailing-highlight");
+        if (highlight && panel) {
+          highlight.addEventListener("click", function () {
+            var open = panel.classList.toggle("is-open");
+            highlight.setAttribute("aria-expanded", open ? "true" : "false");
+          });
+        }
       })();
     </script>
   </body>
