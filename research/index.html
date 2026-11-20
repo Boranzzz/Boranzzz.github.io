@@ -297,18 +297,19 @@
       }
       .highlight-panel {
         display: none;
+        box-sizing: border-box;
         max-width: 38rem;
         margin: 0.75rem 0 0;
-        padding: 0.9rem 1rem 1rem;
+        padding: 0.75rem 0;
         border: 1px solid var(--line);
         background: #fff;
-        color: var(--ink);
-        font-size: 0.95rem;
-        line-height: 1.65;
       }
       .highlight-panel.is-open { display: block; }
-      .highlight-panel p { margin: 0 0 0.75rem; }
-      .highlight-panel p:last-child { margin-bottom: 0; }
+      .highlight-panel img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
       .entry + .entry {
         margin-top: 2.1rem;
       }
@@ -351,7 +352,14 @@
           <button class="entry-link highlight-toggle" type="button" aria-expanded="false" aria-controls="ride-hailing-highlight"><span class="highlight-mark" aria-hidden="true"></span><span class="highlight-label">Highlight</span></button>
           <a class="entry-link">Dataset</a>
         </p>
-        <div class="highlight-panel" id="ride-hailing-highlight"></div>
+        <div class="highlight-panel" id="ride-hailing-highlight">
+          <img
+            src="../images/labor-market-pressure-signals@2x.png"
+            alt="Labor-market pressure signals across eight Chinese cities, 2024 to 2026. Each block is a conditional reading from ride-hailing activity and earnings."
+            width="2048"
+            height="1094"
+          />
+        </div>
       </div>
       <div class="entry">
         <p class="entry-status">In Progress</p>
